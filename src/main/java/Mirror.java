@@ -15,11 +15,12 @@ public class Mirror {
 //        array[2][1] = 8;
 //        array[2][2] = 9;
     public void upDown(int[][]array){
-        for (int x = 0; x <array.length ; x++) {
+        for (int i = 0; i <array.length ; i++) {
             int firstIndex = 0;
             int lastIntex = array.length-1;
             while(firstIndex < lastIntex){
                 //TODO swap()
+                //String directional x or y
                 swap(array, directional, firstValue, lastValue);
                 firstIndex++;
                 lastIntex--;
