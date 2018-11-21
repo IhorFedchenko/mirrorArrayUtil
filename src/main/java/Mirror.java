@@ -24,5 +24,5 @@ public class Mirror {
         }
         return result;
     }
-
+    //TODO upDown and leftRight mirror method
 }
