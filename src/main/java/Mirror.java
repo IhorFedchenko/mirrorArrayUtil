@@ -2,33 +2,52 @@ import java.util.Arrays;
 
 public class Mirror {
 
-    //TODO реализовать swap строк, столбиков
-    //TODO делать проход только по строкам(колонкам) со свапом и встречной итерацией ячеек
-    //    array[y][x]
-//        array[0][0] = 1;
-//        array[0][1] = 2;
-//        array[0][2] = 3;
-//        array[1][0] = 4;
-//        array[1][1] = 5;
-//        array[1][2] = 6;
-//        array[2][0] = 7;
-//        array[2][1] = 8;
-//        array[2][2] = 9;
-    public void upDown(int[][]array){
-        for (int i = 0; i <array.length ; i++) {
+    public void upDown(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
             int firstIndex = 0;
-            int lastIntex = array.length-1;
-            while(firstIndex < lastIntex){
-                //TODO swap()
-                //String directional x or y
-                swap(array, directional, firstValue, lastValue);
+            int lastIndex = array.length - 1;
+            while (firstIndex < lastIndex) {
+                swap(array, "y", i, firstIndex, lastIndex);
                 firstIndex++;
-                lastIntex--;
+                lastIndex--;
             }
-
         }
     }
 
+    public void leftRight(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            int firstIndex = 0;
+            int lastIndex = array.length - 1;
+            while (firstIndex < lastIndex){
+                swap(array,"x", i, firstIndex, lastIndex);
+                firstIndex++;
+                lastIndex--;
+            }
+        }
+    }
+
+    //        array[y][x]
+    //        array[0][0] = 1;
+    //        array[2][1] = 8;
+    //        array[2][0] = 7;
+    //        array[1][2] = 6;
+    //        array[1][1] = 5;
+    //        array[1][0] = 4;
+    //        array[0][2] = 3;
+    //        array[0][1] = 2;
+    //        array[2][2] = 9;
+    private void swap(int[][] array, String directional, int indexDirectional, int first, int last) {
+        if (directional.equals("x")) {
+            int tmp = array[indexDirectional][first];
+            array[indexDirectional][first] = array[indexDirectional][last];
+            array[indexDirectional][last] = tmp;
+        }
+        if (directional.equals("y")) {
+            int tmp = array[first][indexDirectional];
+            array[first][indexDirectional] = array[last][indexDirectional];
+            array[last][indexDirectional] = tmp;
+        }
+    }
 
     private boolean valid(int[][] array) {
         // TODO implement me (TDD)
@@ -68,6 +87,4 @@ public class Mirror {
         }
         return result;
     }
-
-    //TODO upDown and leftRight mirror method
 }
