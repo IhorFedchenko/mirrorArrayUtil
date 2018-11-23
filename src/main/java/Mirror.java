@@ -18,8 +18,8 @@ public class Mirror {
         for (int i = 0; i < array.length; i++) {
             int firstIndex = 0;
             int lastIndex = array.length - 1;
-            while (firstIndex < lastIndex){
-                swap(array,"x", i, firstIndex, lastIndex);
+            while (firstIndex < lastIndex) {
+                swap(array, "x", i, firstIndex, lastIndex);
                 firstIndex++;
                 lastIndex--;
             }
@@ -64,12 +64,35 @@ public class Mirror {
 //        leftRight(array);
     }
 
+    /**
+     * В методе d1 происходит магия
+     * В коментариях прототип алгоритма свапа по диагонали "/" если масив 4х4
+     * Алгоритм выводит на каждой итерации old(y,x) и new(y,x) координаты
+     * @param array
+     */
+//    int length = 4;
+//    int deep = 1;
+//    int mirrorDeep = length - 1;
+//        for (int i = 0; i < length - 1; i++) {
+//        for (int j = 0; j < length - deep; j++) {
+//            System.out.print("oldY: "+i+" "+"oldX: "+j+" "+" newY: "+(mirrorDeep-j)+" newX: "+(length-deep)+"\n");
+//        }
+//        deep++;
+//    }
     public void d1(int[][] array) {
         if (!valid(array)) {
             return;
         }
-
-        // TODO implement me (TDD)
+        int deep = 1;
+        int mirrorDeep = array.length - 1;
+        for (int i = 0; i < mirrorDeep; i++) {
+            for (int j = 0; j < array.length - deep; j++) {
+                int tmp = array[i][j];
+                array[i][j] = array[mirrorDeep-j][array.length-deep];
+                array[mirrorDeep-j][array.length-deep] = tmp;
+            }
+            deep++;
+        }
     }
 
     public void d2(int[][] array) {
