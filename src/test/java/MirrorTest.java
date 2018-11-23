@@ -73,6 +73,16 @@ public class MirrorTest {
     }
 
     @Test
+    public void d1_When_Size_is_2() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[2][2];
+        array[0] = new int[]{1, 2};
+        array[1] = new int[]{3, 4};
+        mirror.d1(array);
+        assertEquals("[4, 2]\n" + "[3, 1]\n", mirror.toString(array));
+    }
+
+    @Test
     public void d1_When_Size_is_3() {
         Mirror mirror = new Mirror();
         int[][] array = new int[3][3];
@@ -96,5 +106,21 @@ public class MirrorTest {
                 "[15, 11, 7, 3]\n" +
                 "[14, 10, 6, 2]\n" +
                 "[13, 9, 5, 1]\n", mirror.toString(array));
+    }
+    @Test
+    public void d1_When_Size_is_5() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[5][5];
+        array[0] = new int[]{1, 2, 3, 4, 5};
+        array[1] = new int[]{6, 7, 8, 9, 10};
+        array[2] = new int[]{11, 12, 13, 14, 15};
+        array[3] = new int[]{16, 17, 18, 19, 20};
+        array[4] = new int[]{21, 22, 23, 24, 25};
+        mirror.d1(array);
+        assertEquals("[25, 20, 15, 10, 5]\n" +
+                "[24, 19, 14, 9, 4]\n" +
+                "[23, 18, 13, 8, 3]\n" +
+                "[22, 17, 12, 7, 2]\n" +
+                "[21, 16, 11, 6, 1]\n", mirror.toString(array));
     }
 }

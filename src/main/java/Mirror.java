@@ -83,15 +83,13 @@ public class Mirror {
         if (!valid(array)) {
             return;
         }
-        int deep = 1;
         int mirrorDeep = array.length - 1;
         for (int i = 0; i < mirrorDeep; i++) {
-            for (int j = 0; j < array.length - deep; j++) {
+            for (int j = 0; j < array.length - (i+1); j++) {
                 int tmp = array[i][j];
-                array[i][j] = array[mirrorDeep-j][array.length-deep];
-                array[mirrorDeep-j][array.length-deep] = tmp;
+                array[i][j] = array[mirrorDeep-j][array.length-(i+1)];
+                array[mirrorDeep-j][array.length-(i+1)] = tmp;
             }
-            deep++;
         }
     }
 
