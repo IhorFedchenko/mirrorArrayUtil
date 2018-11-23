@@ -74,10 +74,10 @@ public class Mirror {
 //    int deep = 1;
 //    int mirrorDeep = length - 1;
 //        for (int i = 0; i < length - 1; i++) {
-//        for (int j = 0; j < length - deep; j++) {
-//            System.out.print("oldY: "+i+" "+"oldX: "+j+" "+" newY: "+(mirrorDeep-j)+" newX: "+(length-deep)+"\n");
+//        for (int j = 0; j < length - (i+1); j++) {
+//            System.out.print("oldY: "+i+" "+"oldX: "+j+" "+" newY: "+(mirrorDeep-j)+" newX: "+(length-(i+1))+"\n");
 //        }
-//        deep++;
+//
 //    }
     public void d1(int[][] array) {
         if (!valid(array)) {
@@ -96,6 +96,15 @@ public class Mirror {
     public void d2(int[][] array) {
         if (!valid(array)) {
             return;
+        }
+        int deep = array.length - 1;
+        for (int i = 1; i < array.length; i++) {
+            for (int j = 0; j < array.length - deep ; j++) {
+                int tmp = array[i][j];
+                array[i][j] = array[j][i];
+                array[j][i] = tmp;
+            }
+            deep--;
         }
 
         // TODO implement me (TDD)

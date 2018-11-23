@@ -107,6 +107,7 @@ public class MirrorTest {
                 "[14, 10, 6, 2]\n" +
                 "[13, 9, 5, 1]\n", mirror.toString(array));
     }
+
     @Test
     public void d1_When_Size_is_5() {
         Mirror mirror = new Mirror();
@@ -122,5 +123,58 @@ public class MirrorTest {
                 "[23, 18, 13, 8, 3]\n" +
                 "[22, 17, 12, 7, 2]\n" +
                 "[21, 16, 11, 6, 1]\n", mirror.toString(array));
+    }
+
+    @Test
+    public void d2_When_Size_is_2() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[2][2];
+        array[0] = new int[]{1, 2};
+        array[1] = new int[]{3, 4};
+        mirror.d2(array);
+        assertEquals("[1, 3]\n" + "[2, 4]\n", mirror.toString(array));
+    }
+
+    @Test
+    public void d2_When_Size_is_3() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[3][3];
+        array[0] = new int[]{1, 2, 3};
+        array[1] = new int[]{4, 5, 6};
+        array[2] = new int[]{7, 8, 9};
+        mirror.d2(array);
+        assertEquals("[1, 4, 7]\n" + "[2, 5, 8]\n" + "[3, 6, 9]\n", mirror.toString(array));
+    }
+
+    @Test
+    public void d2_When_Size_is_4() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[4][4];
+        array[0] = new int[]{1, 2, 3, 4};
+        array[1] = new int[]{5, 6, 7, 8};
+        array[2] = new int[]{9, 10, 11, 12};
+        array[3] = new int[]{13, 14, 15, 16};
+        mirror.d2(array);
+        assertEquals("[1, 5, 9, 13]\n" +
+                "[2, 6, 10, 14]\n" +
+                "[3, 7, 11, 15]\n" +
+                "[4, 8, 12, 16]\n", mirror.toString(array));
+    }
+
+    @Test
+    public void d2_When_Size_is_5() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[5][5];
+        array[0] = new int[]{1, 2, 3, 4, 5};
+        array[1] = new int[]{6, 7, 8, 9, 10};
+        array[2] = new int[]{11, 12, 13, 14, 15};
+        array[3] = new int[]{16, 17, 18, 19, 20};
+        array[4] = new int[]{21, 22, 23, 24, 25};
+        mirror.d2(array);
+        assertEquals("[1, 6, 11, 16, 21]\n" +
+                "[2, 7, 12, 17, 22]\n" +
+                "[3, 8, 13, 18, 23]\n" +
+                "[4, 9, 14, 19, 24]\n" +
+                "[5, 10, 15, 20, 25]\n", mirror.toString(array));
     }
 }
