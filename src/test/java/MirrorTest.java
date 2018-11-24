@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -176,5 +177,26 @@ public class MirrorTest {
                 "[3, 8, 13, 18, 23]\n" +
                 "[4, 9, 14, 19, 24]\n" +
                 "[5, 10, 15, 20, 25]\n", mirror.toString(array));
+    }
+
+    @Test
+    public void invalid_Array_When_2x3() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[2][3];
+        array[0] = new int[]{1, 2, 3};
+        array[1] = new int[]{4, 5, 6};
+        mirror.upDown(array);
+        assertEquals("[1, 2, 3]\n" + "[4, 5, 6]\n", mirror.toString(array));
+    }
+
+    @Test
+    public void invalid_Array_When3x2() {
+        Mirror mirror = new Mirror();
+        int[][] array = new int[3][2];
+        array[0] = new int[]{1, 2};
+        array[1] = new int[]{3, 4};
+        array[2] = new int[]{5, 6};
+        mirror.leftRight(array);
+        assertEquals("[1, 2]\n" + "[3, 4]\n" + "[5, 6]\n", mirror.toString(array));
     }
 }

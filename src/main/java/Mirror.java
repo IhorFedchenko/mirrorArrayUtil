@@ -3,6 +3,9 @@ import java.util.Arrays;
 public class Mirror {
 
     public void upDown(int[][] array) {
+        if (!valid(array)) {
+            return;
+        }
         for (int i = 0; i < array.length; i++) {
             int firstIndex = 0;
             int lastIndex = array.length - 1;
@@ -15,6 +18,9 @@ public class Mirror {
     }
 
     public void leftRight(int[][] array) {
+        if (!valid(array)) {
+            return;
+        }
         for (int i = 0; i < array.length; i++) {
             int firstIndex = 0;
             int lastIndex = array.length - 1;
@@ -50,7 +56,11 @@ public class Mirror {
     }
 
     private boolean valid(int[][] array) {
-        // TODO implement me (TDD)
+        for (int i = 0; i <array.length ; i++) {
+            if (array[i].length != array.length){
+                return false;
+            }
+        }
         return true;
     }
 
@@ -59,7 +69,6 @@ public class Mirror {
         if (!valid(array)) {
             return;
         }
-
 //        upDown(array);
 //        leftRight(array);
     }
@@ -106,8 +115,6 @@ public class Mirror {
             }
             deep--;
         }
-
-        // TODO implement me (TDD)
     }
 
     public String toString(int[][] array) {
